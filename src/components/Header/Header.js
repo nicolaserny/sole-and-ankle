@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-import { COLORS, WEIGHTS } from '../../constants';
-import Logo from '../Logo';
-import SuperHeader from '../SuperHeader';
+import { COLORS, WEIGHTS } from "../../constants";
+import Logo from "../Logo";
+import SuperHeader from "../SuperHeader";
 
 const Header = () => {
   // Our site features two visual headers, but they should be
@@ -12,26 +12,48 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Logo />
-        <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
-        </Nav>
+        <BaselineWrapper>
+          <SideElement>
+            <Logo />
+          </SideElement>
+          <Nav>
+            <NavLink href="/sale">Sale</NavLink>
+            <NavLink href="/new">New&nbsp;Releases</NavLink>
+            <NavLink href="/men">Men</NavLink>
+            <NavLink href="/women">Women</NavLink>
+            <NavLink href="/kids">Kids</NavLink>
+            <NavLink href="/collections">Collections</NavLink>
+          </Nav>
+          <SideElement />
+        </BaselineWrapper>
       </MainHeader>
     </header>
   );
 };
 
-const MainHeader = styled.div`
-  padding: 0 32px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+const BaselineWrapper = styled.div`
+  display: flex;
+  align-items: baseline;
 `;
 
-const Nav = styled.nav``;
+const SideElement = styled.div`
+  flex: 1;
+`;
+
+const MainHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 32px;
+  height: 72px;
+  border-bottom: 1px solid ${COLORS.gray[300]};
+  justify-content: center;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  gap: 48px;
+  margin: 0 48px;
+`;
 
 const NavLink = styled.a`
   font-size: 1.125rem;
