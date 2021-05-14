@@ -48,12 +48,11 @@ const Wrapper = styled.div`
 `;
 
 const LeftColumn = styled.div`
-  flex: 1 1 auto;
-  max-width: 248px;
+  flex-basis: 248px;
 `;
 
 const MainColumn = styled.div`
-  flex: 3 1 auto;
+  flex: 1;
 `;
 
 const Header = styled.header`
